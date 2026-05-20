@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CivicConnect India - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-error": "#ffffff",
+                      "on-primary-container": "#7c839b",
+                      "on-tertiary-fixed": "#410004",
+                      "secondary-container": "#6cf8bb",
+                      "surface-container-lowest": "#ffffff",
+                      "on-secondary": "#ffffff",
+                      "on-tertiary-fixed-variant": "#930013",
+                      "surface-container-highest": "#d3e4fe",
+                      "on-tertiary-container": "#ef4444",
+                      "on-primary-fixed": "#131b2e",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#213145",
+                      "outline-variant": "#c6c6cd",
+                      "surface-variant": "#d3e4fe",
+                      "surface-container-high": "#dce9ff",
+                      "tertiary-fixed-dim": "#ffb3ad",
+                      "primary-fixed-dim": "#bec6e0",
+                      "tertiary-container": "#410004",
+                      "tertiary": "#000000",
+                      "on-surface-variant": "#45464d",
+                      "surface-tint": "#565e74",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#76777d",
+                      "on-secondary-fixed": "#002113",
+                      "surface-dim": "#cbdbf5",
+                      "on-secondary-fixed-variant": "#005236",
+                      "inverse-primary": "#bec6e0",
+                      "surface-container": "#e5eeff",
+                      "surface-container-low": "#eff4ff",
+                      "on-primary-fixed-variant": "#3f465c",
+                      "primary-container": "#131b2e",
+                      "background": "#f8f9ff",
+                      "inverse-on-surface": "#eaf1ff",
+                      "on-surface": "#0b1c30",
+                      "primary": "#000000",
+                      "primary-fixed": "#dae2fd",
+                      "secondary-fixed": "#6ffbbe",
+                      "secondary": "#006c49",
+                      "on-background": "#0b1c30",
+                      "surface-bright": "#f8f9ff",
+                      "on-error-container": "#93000a",
+                      "surface": "#f8f9ff",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "on-secondary-container": "#00714d",
+                      "tertiary-fixed": "#ffdad7"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "gutter": "20px",
+                      "md": "16px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "xs": "4px",
+                      "container-max": "1280px",
+                      "xl": "40px"
+              },
+              "fontFamily": {
+                      "body-sm": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "h1": ["Public Sans"],
+                      "h3": ["Public Sans"],
+                      "body-lg": ["Inter"],
+                      "button": ["Inter"],
+                      "body-md": ["Inter"],
+                      "h2": ["Public Sans"]
+              },
+              "fontSize": {
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "h1": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "h3": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "button": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "h2": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background antialiased overflow-x-hidden">
+<!-- Top Navigation Bar -->
+<nav class="bg-slate-50/95 dark:bg-slate-900/95 backdrop-blur-md text-slate-900 dark:text-slate-50 font-public-sans tracking-tight fixed top-0 w-full z-50 border-b border-slate-200 dark:border-slate-800 shadow-sm flex justify-between items-center px-4 md:px-8 py-3 max-w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-slate-900 dark:text-slate-50">CivicConnect India</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Explore</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors" href="#">Report</a>
+<a class="text-slate-900 dark:text-white border-b-2 border-slate-900 dark:border-slate-50 pb-1 font-bold" href="#">Admin</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-white px-4 py-2 rounded-xl text-button font-button active:opacity-80 transition-all duration-200">
+                Report Issue
+            </button>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-600 cursor-pointer p-2 hover:bg-slate-100 rounded-full">notifications</span>
+<span class="material-symbols-outlined text-slate-600 cursor-pointer p-2 hover:bg-slate-100 rounded-full">account_circle</span>
+</div>
+</div>
+</nav>
+<div class="flex min-h-screen pt-[64px]">
+<!-- Side Navigation Bar -->
+<aside class="hidden md:flex flex-col h-[calc(100vh-64px)] w-64 bg-white dark:bg-slate-950 border-r border-slate-200 dark:border-slate-800 p-4 gap-2 sticky top-[64px]">
+<div class="flex items-center gap-3 px-2 py-4 mb-2">
+<img class="w-10 h-10 rounded-full border border-slate-200" data-alt="A professional studio portrait of a senior government official in a sharp grey suit. The background is a soft, blurred office environment with warm indoor lighting. The style is clean, corporate, and minimalist, emphasizing reliability and authority with a calm, confident expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfmgpZBTDZihwMJ3uEksP3U_WDB4kpnhfw5Xvk5FdXIS1bFte0qvPgYFE9wiu0ESqYLEWMUHbvobM-T0rF5Vi6U7TMPVk7eEIrGh-x0RssYgqR-TXLejPzhrF_AUw4UqQcyYwYv0gAnJ9y44fgreX5zDQwaXPiz5D1GO576gzXAR0YMH5ycvqRxJa-X99rhsuY2KS3aEiE3o2GXc2Q8QrmL-dhpkP7WSzApredQAZXFJMtivzDCIjUvS6Vxj6meENwUDGAOlR07rFz"/>
+<div>
+<h4 class="font-h3 text-sm font-bold text-slate-900">Civic Portal</h4>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider">Official Management</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all rounded-md" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="font-body-sm font-medium">Overview Map</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white rounded-md" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span class="font-body-sm font-medium">Issue Tracker</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all rounded-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-body-sm font-medium">Admin Panel</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all rounded-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-body-sm font-medium">User Settings</span>
+</a>
+</nav>
+<button class="mt-4 w-full py-3 bg-error text-white font-button text-sm rounded-xl active:scale-95 transition-transform flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">emergency_home</span>
+                Emergency Dispatch
+            </button>
+<div class="mt-auto pt-4 border-t border-slate-100">
+<a class="flex items-center gap-3 px-3 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900 transition-all rounded-md" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-body-sm font-medium">Help Center</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 p-4 md:p-8 bg-[#F8FAFC]">
+<!-- Header & Filters Section -->
+<div class="max-w-container-max mx-auto mb-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="font-h1 text-h1 text-on-surface mb-2">Pending Issues</h1>
+<p class="text-body-md text-slate-600 max-w-2xl">High-priority infrastructure and utility reports requiring immediate institutional response and resolution from local departments.</p>
+</div>
+<div class="flex items-center gap-2 bg-white p-1 rounded-full border border-slate-200 shadow-sm">
+<button class="px-6 py-2 bg-primary text-white rounded-full text-sm font-semibold transition-all">Pending</button>
+<button class="px-6 py-2 text-slate-500 hover:text-slate-800 rounded-full text-sm font-semibold transition-all">Resolved</button>
+</div>
+</div>
+</div>
+<!-- Issues Bento Grid -->
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Severity 10 - Urgent -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-48 group">
+<img class="w-full h-full object-cover" data-alt="A high-angle photograph showing a significant main water line burst on a city street, creating a deep fissure in the asphalt with pressurized water gushing into the air. The scene is captured in clear daylight with high contrast, emphasizing the scale of infrastructure failure. The surrounding environment is a modern urban neighborhood with clean sidewalks and sharp architectural lines." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApNc1zu8US2AwIfJY2eaaJP5gTDHTa115sPZ6VPdVlJ1sCOyQf5Dg03PlZVoC9zmPalg1sMmrEevinKC2fTI-JXLzONiQ6zZz6Edl-YQ1vvIAN3FwncR80KmWNfCL5AdXDQM65JJpJtqtfzHA1w7CFxsSE_Yyrf2JrNmjZyCw7N1P4w0AxXBnfTIv11aXN-V0DVepa7IBJtEyj9fCoUGf3qGuhH33EVGxfl8Zd4eVERef8SsOzlfw1LJ_rdnqJodTX3DkiqfG-gQIN"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest border border-red-500/20">Pending</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg shadow-sm border border-slate-200 text-center">
+<p class="text-[10px] font-bold text-slate-500 leading-none">SEVERITY</p>
+<p class="text-lg font-black text-error leading-tight">10</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-h3 text-lg text-slate-900 leading-tight">Main Sewerage Burst</h3>
+<div class="flex items-center gap-1 text-slate-500 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-xs font-medium">Bandra West, Link Road Junction</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">UTILITY</span>
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">EMERGENCY</span>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-xl font-button text-sm hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark as Resolved
+                        </button>
+</div>
+</div>
+<!-- Severity 8 - High -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-48 group">
+<img class="w-full h-full object-cover" data-alt="A detailed wide-angle shot of multiple deep potholes on a busy metropolitan avenue at dusk. The warm golden-hour lighting reflects off the wet asphalt, creating a cinematic look. The image captures the contrast between the damaged road surface and the sharp, modern high-rise buildings in the distance, emphasizing urban maintenance needs in a corporate-minimalist photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnzbZ4qDc9UcZljs0auh8bmo60WFsXvkZMCtrOsvGYVC6yqAY8yXQvGhyRXdnK3jfRDblHzDSC3DcIpSJEtBfalNvAOaOp9U8ZVsT5eJnCv_xU-UIVvF35XmT_O-Z41MBRS0NyiGkfIKMN1oZ1zGVAHbRi8F-23V-nIkcKvVLmhf9Z1N8p-EfkcpNV3HnHEjTOps4G62MLMQAvopx-YDRxSIifALtd6jUDc7PVe92e4apn-syxXKnsbcRbDtO2QH7s1DBtrKO9zW_b"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest border border-red-500/20">Pending</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg shadow-sm border border-slate-200 text-center">
+<p class="text-[10px] font-bold text-slate-500 leading-none">SEVERITY</p>
+<p class="text-lg font-black text-error leading-tight">08</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-h3 text-lg text-slate-900 leading-tight">Hazardous Road Condition</h3>
+<div class="flex items-center gap-1 text-slate-500 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-xs font-medium">Outer Ring Road, Sector 4</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">ROADS</span>
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">PUBLIC SAFETY</span>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-xl font-button text-sm hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark as Resolved
+                        </button>
+</div>
+</div>
+<!-- Severity 7 - High -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-48 group">
+<img class="w-full h-full object-cover" data-alt="A row of contemporary LED streetlights along a dark city park pathway, with three consecutive lamps non-functional. The scene is shot at night with long exposure, creating deep blues and stark contrasts. The mood is calm but highlights a security concern. The lighting is moody and professional, following a minimalist urban aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYU78iQIXdF_4UNABkWqIVcGCxhCkjBrEZp2PnZUbOrcIcqS5soJ9knKz3ACO1KCkNh5QREALzzGIkl9tYMMo4OfA6fvzpogK-Ybqy5I8vm8LnuRroamkkwl43EkMaYbmdEK9f2t1cAM0HKMpr5vGx4I0iOCx8M6laXnmIY_q-3e15dTnqSMwVU13SNkS2I5eVB3Tro9Tv4-Zh2oanqlgdxzIAkvzlblNTBBBnVNQpEqwo5S9Bj6Z7NvL9UrnK9McUnOKStn7Ldhni"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest border border-red-500/20">Pending</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg shadow-sm border border-slate-200 text-center">
+<p class="text-[10px] font-bold text-slate-500 leading-none">SEVERITY</p>
+<p class="text-lg font-black text-amber-600 leading-tight">07</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-h3 text-lg text-slate-900 leading-tight">Multiple Streetlight Failure</h3>
+<div class="flex items-center gap-1 text-slate-500 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-xs font-medium">Hiranandani Gardens, Central Ave</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">LIGHTING</span>
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">SECURITY</span>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-xl font-button text-sm hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark as Resolved
+                        </button>
+</div>
+</div>
+<!-- Severity 5 - Medium -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow">
+<div class="relative h-48 group">
+<img class="w-full h-full object-cover" data-alt="A large overflowing communal trash container in a clean, modern residential plaza. The image focuses on the contrast between the sleek, white architecture of the surroundings and the unmanaged waste. Soft morning light casts long shadows, maintaining a professional and diagnostic tone. The style is ultra-clean and high-resolution, following a corporate sustainability report aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPlzwg8NnCIXEpzLmg3pT6P0kVkeOuDgYJTvkpj23ZBQ2MbaLgCWNB2X3GY4v1HUtYyv_EyMw8CVPsdSCe2DoCPgXYHamaugn3UrYMvN6j9BpAdOkZmICWBe4LVpeg7Q28sZ8MqqzQ4urHjU-dEbPp8qnX8u_6p39dhYZ-FWQTa_uuk86hqkTAXgsMOoZ8rv5Q4GamfTHQJAc_YPLVKdYMS5IbIgdoCWEG4fhRdvhIqj5rVfOBVTVIyWIpYKJdoY9mwzFEcLQKvFbk"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest border border-red-500/20">Pending</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg shadow-sm border border-slate-200 text-center">
+<p class="text-[10px] font-bold text-slate-500 leading-none">SEVERITY</p>
+<p class="text-lg font-black text-slate-900 leading-tight">05</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-h3 text-lg text-slate-900 leading-tight">Overflowing Disposal Unit</h3>
+<div class="flex items-center gap-1 text-slate-500 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-xs font-medium">Cyber City, Phase 2</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">SANITATION</span>
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">HEALTH</span>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-xl font-button text-sm hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark as Resolved
+                        </button>
+</div>
+</div>
+<!-- Severity 3 - Low -->
+<div class="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow opacity-90 grayscale-[0.2]">
+<div class="relative h-48 group">
+<img class="w-full h-full object-cover" data-alt="A minimalist photograph of a clean, light-colored concrete wall in a public park featuring unauthorized graffiti. The lighting is flat and even, highlighting the texture of the wall and the vibrancy of the paint. The composition is centered and symmetrical, creating a professional and clinical view of minor property damage in an institutional context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK7088HdTl4VcH4NVgDtHQIg2KTZTIHDJ4QIVgUQAi3ej2vtOoeeTkvfsKFl-DJX69RKSaCTVXiywpYz2jE9i5KlIMwxMu8vFOD5NrxETrcaWPjnygJswCTgSRh8_nFAlL0maHy92CIMYXbuvjWaKueRL30JpmIqS9hsCUo5USrYmdx6oR00Yr8ZQfqqAk9n_qrEPE8Fi6z9NFPTXPAZA5m36TalGvG41xDcaOFrF_1F__oLSRjA7ldlG2uR73QaqUYE_0c7dy46zo"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-caps text-[10px] uppercase tracking-widest border border-red-500/20">Pending</span>
+</div>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-lg shadow-sm border border-slate-200 text-center">
+<p class="text-[10px] font-bold text-slate-500 leading-none">SEVERITY</p>
+<p class="text-lg font-black text-slate-600 leading-tight">03</p>
+</div>
+</div>
+<div class="p-5 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h3 class="font-h3 text-lg text-slate-900 leading-tight">Minor Wall Defacement</h3>
+<div class="flex items-center gap-1 text-slate-500 mt-1">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+<span class="text-xs font-medium">Unity Park Entrance</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2 mb-6">
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">ESTHETICS</span>
+<span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-[11px] font-bold">MAINTENANCE</span>
+</div>
+<button class="mt-auto w-full py-3 bg-primary text-white rounded-xl font-button text-sm hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            Mark as Resolved
+                        </button>
+</div>
+</div>
+<!-- Add New Placeholder -->
+<div class="border-2 border-dashed border-slate-200 rounded-xl flex flex-col items-center justify-center p-8 bg-slate-50 hover:bg-white transition-colors cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform mb-4">
+<span class="material-symbols-outlined text-3xl text-slate-400">add</span>
+</div>
+<p class="font-h3 text-lg text-slate-500">Create New Dispatch</p>
+<p class="text-sm text-slate-400 text-center mt-2">Manually enter an issue reported via offline channels</p>
+</div>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe md:hidden bg-white/90 dark:bg-slate-950/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 shadow-[0_-4px_6px_-1px_rgba(15,23,42,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Report</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-900 dark:text-white scale-110 transition-transform active:scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="text-[10px] font-semibold uppercase tracking-widest">Admin</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="w-full py-8 px-4 mt-auto flex flex-col md:flex-row justify-between items-center gap-4 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col items-center md:items-start gap-1">
+<span class="font-bold text-slate-900 dark:text-slate-50">CivicConnect India</span>
+<p class="text-xs font-public-sans text-slate-600 dark:text-slate-400">© 2024 National Utility Reporting Portal. Institutional Reliability &amp; Security.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-xs font-public-sans text-slate-600 dark:text-slate-400 no-underline hover:text-slate-900 dark:hover:text-slate-200 transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="text-xs font-public-sans text-slate-600 dark:text-slate-400 no-underline hover:text-slate-900 dark:hover:text-slate-200 transition-colors duration-200" href="#">Terms of Service</a>
+<a class="text-xs font-public-sans text-slate-600 dark:text-slate-400 no-underline hover:text-slate-900 dark:hover:text-slate-200 transition-colors duration-200" href="#">API Docs</a>
+<a class="text-xs font-public-sans text-slate-600 dark:text-slate-400 no-underline hover:text-slate-900 dark:hover:text-slate-200 transition-colors duration-200" href="#">Contact Support</a>
+</div>
+</footer>
+</body></html>
